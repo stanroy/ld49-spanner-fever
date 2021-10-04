@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/WorldEnvironment.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Environment/my_env_day.tres" type="Environment" id=2]
+[ext_resource path="res://Scenes/CarSphere.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Mesh1Tx.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/StatsTracker.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Spanner.tscn" type="PackedScene" id=6]
+
+[node name="Level2" type="Node"]
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 66.9653, 0 )
+light_energy = 0.44
+spot_range = 91.0
+spot_angle = 44.0
+
+[node name="WorldEnvironment" parent="." instance=ExtResource( 1 )]
+environment = ExtResource( 2 )
+
+[node name="Mesh1" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0 )
+
+[node name="Car" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.79454, 0 )
+
+[node name="StatsTracker" parent="." instance=ExtResource( 5 )]
+current_level = 2
+
+[node name="spanner" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.21833, 0 )
+
+[node name="spanner2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.4689, 2.21833, -19.707 )
+
+[node name="spanner3" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.4689, 2.21833, 11.8345 )
+
+[node name="spanner4" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2834, 2.21833, -21.1223 )
+
+[node name="spanner5" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2834, 2.21833, 18.7027 )
+
+[node name="spanner6" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17227, 2.21833, 29.4238 )
+
+[node name="spanner7" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17227, 2.21833, -35.1066 )
+
+[node name="spanner8" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17227, 2.21833, -14.8304 )
+
+[node name="spanner9" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6653, 2.21833, -4.59089 )
+
+[node name="spanner10" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9912, 2.21833, -4.59089 )

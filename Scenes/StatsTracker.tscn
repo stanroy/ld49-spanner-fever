@@ -1,0 +1,183 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Fonts/StatsTrackerUIFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/StatsTracker.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/GemunuLibre/GemunuLibre-ExtraBold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Fonts/MenuFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Materials/StatsTrackerButtonStyleNormal.tres" type="StyleBox" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 150
+outline_size = 6
+outline_color = Color( 1, 0.52549, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.490196, 0.184314, 0.184314, 0.976471 )
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color( 0.968627, 0.254902, 0.00784314, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.05, 0.019, 0.019, 1 )
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color( 0.968627, 0.254902, 0.00784314, 1 )
+border_blend = true
+
+[node name="StatsTracker" type="Node"]
+script = ExtResource( 2 )
+
+[node name="GlobalTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HintTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Control" type="Control" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeLeft" type="Label" parent="Control"]
+margin_left = 45.5677
+margin_top = 34.42
+margin_right = 312.568
+margin_bottom = 109.42
+custom_fonts/font = ExtResource( 1 )
+text = "Time Left: 50"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpannerTracker" type="Label" parent="Control"]
+margin_left = 901.0
+margin_top = 31.0
+margin_right = 1282.0
+margin_bottom = 132.0
+custom_fonts/font = ExtResource( 1 )
+text = "Spanners Left: 5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hint" type="Label" parent="Control"]
+margin_left = 2.0
+margin_top = 274.0
+margin_right = 1280.0
+margin_bottom = 472.0
+custom_fonts/font = ExtResource( 1 )
+text = "Collect all spanners!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WinTimer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[node name="ControlWin" type="Control" parent="."]
+visible = false
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="ControlWin"]
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+color = Color( 0.964706, 0.913725, 0.486275, 0.231373 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ControlWin"]
+margin_left = 1.68188
+margin_top = 1.68176
+margin_right = 1281.68
+margin_bottom = 721.682
+custom_fonts/font = SubResource( 1 )
+text = "You Win!"
+align = 1
+valign = 1
+
+[node name="ButtonNext" type="Button" parent="ControlWin"]
+margin_left = 526.401
+margin_top = 504.538
+margin_right = 755.401
+margin_bottom = 585.538
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = ExtResource( 5 )
+custom_fonts/font = ExtResource( 4 )
+text = "NEXT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControlLose" type="Control" parent="."]
+visible = false
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="ControlLose"]
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+color = Color( 0.964706, 0.913725, 0.486275, 0.231373 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ControlLose"]
+margin_left = 1.68188
+margin_top = 1.68176
+margin_right = 1281.68
+margin_bottom = 721.682
+custom_fonts/font = SubResource( 1 )
+text = "You Lose :("
+align = 1
+valign = 1
+
+[node name="ButtonRetry" type="Button" parent="ControlLose"]
+margin_left = 526.401
+margin_top = 504.538
+margin_right = 755.401
+margin_bottom = 585.538
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = ExtResource( 5 )
+custom_fonts/font = ExtResource( 4 )
+text = "RETRY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="timeout" from="GlobalTimer" to="." method="_on_GlobalTimer_timeout"]
+[connection signal="timeout" from="HintTimer" to="." method="_on_HintTimer_timeout"]
+[connection signal="timeout" from="WinTimer" to="." method="_on_WinTimer_timeout"]
+[connection signal="pressed" from="ControlWin/ButtonNext" to="." method="_on_ButtonNext_pressed"]
+[connection signal="pressed" from="ControlLose/ButtonRetry" to="." method="_on_ButtonRetry_pressed"]

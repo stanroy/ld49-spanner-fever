@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/CarSphere.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Spanner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/StatsTracker.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Mesh1Tx.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/WorldEnvironment.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Environment/my_env_day.tres" type="Environment" id=6]
+
+[node name="Level1" type="Node"]
+
+[node name="Car" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.642376, 8.23227, 2.79477 )
+
+[node name="spanner" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.0068, 1.17902, 19.261 )
+
+[node name="spanner2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.5407, 1.17902, -12.0264 )
+
+[node name="spanner3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9249, 1.17902, -6.90116 )
+
+[node name="spanner4" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.756, 1.17902, 28.5299 )
+
+[node name="spanner5" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.19023, 1.17902, -31.0669 )
+
+[node name="StatsTracker" parent="." instance=ExtResource( 3 )]
+current_level = 1
+
+[node name="Mesh1" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0 )
+
+[node name="WorldEnvironment" parent="." instance=ExtResource( 5 )]
+environment = ExtResource( 6 )
