@@ -396,7 +396,7 @@ material/11 = null
 material/12 = null
 
 [node name="wheel_front_left" type="MeshInstance" parent="CarRoot"]
-transform = Transform( -100, 0, -8.74228e-06, 0, 100, 0, 8.74228e-06, 0, -100, -0.642976, 0.460589, -1.09296 )
+transform = Transform( -100, -7.81973e-07, -8.70723e-06, 0, -99.5992, 8.94473, -8.74228e-06, 8.94473, 99.5992, -0.642976, 0.460589, -1.09296 )
 material_override = ExtResource( 16 )
 mesh = SubResource( 4 )
 material/0 = null
@@ -410,7 +410,7 @@ material/0 = null
 material/1 = null
 
 [node name="wheel_front_right" type="MeshInstance" parent="CarRoot"]
-transform = Transform( -100, -4.66152e-06, -7.39578e-06, 0, 84.5979, -53.3216, 8.74228e-06, -53.3216, -84.5979, 1.31468, 0.460589, -1.0809 )
+transform = Transform( -100, -7.81973e-07, -8.70723e-06, 0, -99.5991, 8.94473, -8.74228e-06, 8.94473, 99.5991, 1.31468, 0.460589, -1.0809 )
 material_override = ExtResource( 16 )
 mesh = SubResource( 6 )
 material/0 = null

@@ -49,6 +49,8 @@ func _physics_process(delta):
 	car_area.transform.origin = ball.transform.origin + sphere_offset
 	ball.add_central_force(-car_area.global_transform.basis.z * speed_input)
 	
+	
+	
 	engine_pitch = abs((ball.linear_velocity.length()/10)/2.4)
 	
 
@@ -71,6 +73,7 @@ func _process(delta):
 	speed_input -= Input.get_action_strength("brake")
 	speed_input *= acceleration
 	
+	
 	rotate_input = 0
 	rotate_input += Input.get_action_strength("steer_left")
 	rotate_input -= Input.get_action_strength("steer_right")
@@ -78,6 +81,7 @@ func _process(delta):
 	
 	if rotate_input != 0 and speed_input != 0:
 		smoke_particles_back.emitting = true
+		print(rotate_input)
 		smoke_particles_back.direction = Vector3(-rotate_input,0,0)
 		
 		smoke_particles_front.emitting = true
@@ -113,6 +117,7 @@ func _process(delta):
 		car_area.global_transform = car_area.global_transform.orthonormalized()
 		
 		var t = -rotate_input * ball.linear_velocity.length() / body_tilt
+		print(t);
 		car_area.rotation.z = lerp(car_area.rotation.z, t, 10 * delta)
 		
 	var n = ground_ray.get_collision_normal()
